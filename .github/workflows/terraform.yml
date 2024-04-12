@@ -10,6 +10,7 @@ env:
   AWS_REGION: ap-southeast-1
 
 permissions:
+  id-token: write
   contents: read
 
 jobs:
@@ -30,8 +31,7 @@ jobs:
           aws-access-key-id: ${{ secrets.TF_DEV_950705_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.TF_DEV_950705_AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-        permission:
-          id-token: write
+        
 
       - name: Terraform Init
         run: terraform init
